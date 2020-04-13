@@ -1,0 +1,160 @@
+\documentclass[
+superscriptaddress,
+amsmath,
+amssymb,
+aps,
+prl,
+floatfix
+]{revtex4-1}
+\usepackage{graphicx}          % Include figure files
+\usepackage{dcolumn}           % Align table columns on decimal point
+\usepackage{bm}                % bold math
+\usepackage{units}             % set units in a typographically correct way
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{upgreek}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% MACROS
+% AMO abbreviations
+\def\kr{k_{\rm R}}                                    % kr
+\def\Er{E_{\rm R}}                                    % kr
+\def\Rb87{^{87}\mathrm{Rb}}                     % Rb 87
+\def\K40{^{40}\mathrm{K}}                       % K 40
+
+% Unit vectors
+\def\ex{\mathbf{e}_x}
+\def\ey{\mathbf{e}_y}
+\def\ez{\mathbf{e}_z}
+
+%bra/ket commands
+\def\bra#1{\mathinner{\langle{#1}|}}
+\def\ket#1{\mathinner{|{#1}\rangle}}
+\def\braket#1{\mathinner{\langle{#1}\rangle}}
+\def\Bra#1{\left<#1\right|}
+\def\Ket#1{\left|#1\right>}
+{\catcode`\|=\active
+  \gdef\Braket#1{\left<\mathcode`\|"8000\let|\BraVert {#1}\right>}}
+\def\BraVert{\egroup\,\mid@vertical\,\bgroup}
+
+% Editorial macros
+\newcommand{\reffig}[1]{\mbox{Fig.~\ref{#1}}}
+\newcommand{\refeq}[1]{\mbox{Eq.~(\ref{#1})}}
+\newcommand{\refsec}[1]{\mbox{Sec.~(\ref{#1})}}
+\newcommand{\etal}{et~al.}
+\newcommand{\note}[1]{\textcolor{ForestGreen}{[\textrm{#1}]}} % Make editorial notes green
+% \newcommand{\note}[1]{\textcolor{ForestGreen}{[]}} % Empty editorial notes
+
+\def\shorttimes{\!\times\!}
+
+\addtolength{\abovecaptionskip}{-0.1in}
+\addtolength{\belowcaptionskip}{-0.2in}
+
+%
+% Enable/disable supporting computations
+%
+\usepackage{etoolbox}
+\newtoggle{SUPPORT}
+\toggletrue{SUPPORT}
+%\togglefalse{SUPPORT}
+\long\def\support#1{ \iftoggle{SUPPORT}{\begin{widetext}\small {\leavevmode\color{red}{#1}} \normalsize\end{widetext}}{} }
+
+
+\begin{document}
+
+\title{Magnetic field stabilization in ultracold atom experiments using partial transfer absorption imaging}
+
+% \author{R. P. Anderson}
+% \thanks{These two authors contributed equally.}
+% \affiliation{Joint Quantum Institute, University of Maryland, College Park, Maryland, 20742, USA}
+% \affiliation{School of Physics and Astronomy, Monash University, Melbourne, Victoria 3800, Australia}
+% \affiliation{La Trobe Institute of Molecular Science, La Trobe University, Bendigo, Victoria 3552, Australia}
+
+% \author{D. Trypogeorgos}
+% \thanks{These two authors contributed equally.}
+% \affiliation{INO-CNR BEC Center and Dipartimento di Fisica, Universit\`a di Trento, 38123 Povo, Italy}
+% \affiliation{Joint Quantum Institute, University of Maryland, College Park, Maryland, 20742, USA}
+
+\author{A. Vald\'es-Curiel}
+\author{Q.-Y. Liang}
+\author{J. Tao}
+\author{M. Zhao}
+\affiliation{Joint Quantum Institute, University of Maryland, College Park, Maryland, 20742, USA}
+
+
+% \author{T. Andrijauskas}
+% \author{G. Juzeli\={u}nas}
+% \affiliation{Institute of Theoretical Physics and Astronomy, Vilnius University, Saul\.{e}tekio 3, LT-10257 Vilnius, Lithuania}
+
+\author{I. B. Spielman}
+\email{ian.spielman@nist.gov}
+\homepage{http://ultracold.jqi.umd.edu}
+\affiliation{Joint Quantum Institute, University of Maryland, College Park, Maryland, 20742, USA}
+\affiliation{National Institute of Standards and Technology, Gaithersburg, Maryland 20899, USA}
+
+\date{\today}%
+
+\begin{abstract}
+We show how to stabilize B field
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Introduction and context
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This is the introduction
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Proposal
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\it Proposal} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Basic experimental details 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\it Implementation} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Results II: Resolution of BZ
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\it Results}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Results III: RF : 3x well lattice
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\it More results maybe} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Outlook
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{acknowledgments}
+This work was partially supported by the AFOSRs Quantum Matter MURI, NIST, and the NSF through the PFC at the JQI.
+We are grateful for insights from the very detailed reading of our manuscript by G.~Reid and Y.~Yue.
+\end{acknowledgments}
+
+\bibliography{PTAI}
+
+\end{document}
+
