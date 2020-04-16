@@ -4,6 +4,7 @@ amsmath,
 amssymb,
 aps,
 prl,
+twocolumn,
 floatfix
 ]{revtex4-1}
 \usepackage{graphicx}          % Include figure files
@@ -82,11 +83,6 @@ floatfix
 \author{M. Zhao}
 \affiliation{Joint Quantum Institute, University of Maryland, College Park, Maryland, 20742, USA}
 
-
-% \author{T. Andrijauskas}
-% \author{G. Juzeli\={u}nas}
-% \affiliation{Institute of Theoretical Physics and Astronomy, Vilnius University, Saul\.{e}tekio 3, LT-10257 Vilnius, Lithuania}
-
 \author{I. B. Spielman}
 \email{ian.spielman@nist.gov}
 \homepage{http://ultracold.jqi.umd.edu}
@@ -96,7 +92,7 @@ floatfix
 \date{\today}%
 
 \begin{abstract}
-We show how to stabilize B field
+We present a non-destructive method for measuring and stabilizing magnetic fields in ultracold atom experiments using partial transfer absorption imaging. 
 \end{abstract}
 
 \maketitle
@@ -117,6 +113,20 @@ This is the introduction
 
 {\it Proposal} 
 
+The population transfered by the microwave pulse is 
+
+\begin{equation}
+	\vert c_e(t)\vert^2=\frac{\Omega^2}{\Omega^2+\delta^2}\sin^2\left(\frac{\sqrt{\Omega^2+\delta^2}}{2}t\right)
+	\label{eq:Rabi_oscillations}	
+\end{equation}
+
+SNR for absorption imaging according to Erin's paper is 
+\begin{equation}
+	SNR_{\mathrm{model}}=\frac{OD}{\Delta_0}\left(\frac{2}{1+e^{OD}}\right)^{1/2}
+\end{equation}
+
+where $\Delta_0$ is the noise in the absence of atoms.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Basic experimental details 
@@ -125,6 +135,25 @@ This is the introduction
 
 {\it Implementation} 
 
+Most experiments are performed in the $F=1$ ground hyperfine manifold with some bias field $B_0\ez$ that shifts the energies of the different $\ket{m_F}$ states. Due to the linear dependence of the energies of the $\ket{m_F=\pm1}$ and the constant changes in the ambient magnetic field we use microwave assisted partial transfer absorption imaging (PTAI) to monitor and stabilize the magnetic field. 
+
+The method relies on transferring a small fraction of atoms into the $5^2S_{1/2}$ $F=2$ manifold using an oscillating magnetic field with frequency close to the $\unit[6.8]{GHz}$ ground hyperfine splitting. The atoms in $F=2$ can be imaged without the use of repump light and therefore minimally disturbing the remaining atoms in $F=1$. We apply two microwave pulses for a total time $\tau$ with frequency $\omega_0-\delta_{\pm}$ where $\delta_{\pm}=\pm1/(2\tau)$. We typically set $\omega_0$ equal to the Zeeman splitting between the $\ket{F=1, m_f=-1}$ and $\ket{F=2, m_f=-2}$ states at a target magnetic field and we set the coupling strength $\Omega_0\ll 1/\tau$ such that only about $5\%$ of the atoms are transferred by each pulse. We image the transferred atoms following each pulse using absorption imaging and from the measured densities we calculate the imbalance or error
+%
+\begin{equation}
+ 	n_{\rm{imb}}=\frac{n(\delta_+)-n(\delta_-)}{n(\delta_+)+n(\delta_-)}
+ \end{equation} 
+%
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[]{Figures/uwave_lock.pdf}
+\caption[Magnetic field stabilization using microwave assisted PTAI]{Magnetic field stabilization using microwave assisted PTAI. {\bf a.} Population transfered into $\ket{F=2, m_F=-1}$ from $\ket{F=1, m_F=-1}$ as a function of bias magnetic field (global detuning $\delta$). Each microwave pulse was $\tau=\unit[250]{\mu s}$ and detuned by $\delta_{\pm}=\pm 1/(2\tau)$ transfer a small fraction of atoms from $\ket{F=1, m_F=-1}$ into $\ket{F=2, m_F=-1}$. {\bf b.} Error signal calculated using the transfered atoms by each pulse. We lock the magnetic field to the $\sim\unit[5]{kHz}$ ($\unit[\sim 7]{mG}$) wide linear portion of the signal.}
+\label{fig:uwave_lock}
+\end{center}
+\end{figure}
+signal that is both insensitive to fluctuations in the number of atoms and linearly sensitive to changes in magnetic field\footnote{A single pulse on resonance is quadratically sensitive to detuning} . We use this error signal both to monitor the magnetic field before performing experiments and to cancel long term drifts in the field. In most cases, we chose the states $\ket{F=1, m_F=-1}$ and $\ket{F=2, mf=-2}$ as their relative energies are the most sensitive to changes in magnetic field. Figure~\ref{fig:uwave_lock}a shows the number of atoms transferred by each microwave pulse for different values of bias magnetic field and Figure~\ref{fig:uwave_lock}b shows the imbalance. The microwave frequency $\omega_0$ is on resonance with the $\ket{F=1, m_F=-1}\rightarrow\ket{F=2, m_F=-2}$ transition when both pulses transfer the same number of atoms.
+
+
+In~\cite{seroka_repeated_2019} we studied partial transfer absorption imaging as a minimally destructive technique for imaging ultracold atoms.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Results II: Resolution of BZ
