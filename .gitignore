@@ -246,3 +246,5 @@ TSWLatexianTemp*
 *.ai
 *.h5
 *.txt
+*.key
+*.pyc
