@@ -124,6 +124,10 @@ def SNR_calculator(target_OD, pulse_duration, CCD, s0, technical_noise=True):
     
     # Estimated SNR
     signal_to_noise = target_OD / sigma_OD
+    plt.plot(intensities, sigma_OD)
+    plt.ylim([0.15, 0.5])
+    plt.show()
+    print('Min noise in OD is {}'.format(sigma_OD.min()))
     if DEBUG:
         print(
             fR"The peak SNR is {signal_to_noise.max():.2f}, at ~ {s0[signal_to_noise.argmax()]:.2f} Isat"
@@ -182,7 +186,7 @@ if __name__ in '__main__':
     CCD = Mako
 
     # Optical depth at the object plane
-    OD = 0.05#target_linear_density * sigma_0 / CCD['Pixel Size']
+    OD = 0.2#target_linear_density * sigma_0 / CCD['Pixel Size']
     signaltonoise = SNR_calculator(OD, pulse_length, CCD, intensities)
     fig = plt.figure(num=1)
     plt.plot(

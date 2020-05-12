@@ -116,16 +116,47 @@ This is the introduction
 The population transfered by the microwave pulse is 
 
 \begin{equation}
-	\vert c_e(t)\vert^2=\frac{\Omega^2}{\Omega^2+\delta^2}\sin^2\left(\frac{\sqrt{\Omega^2+\delta^2}}{2}t\right)
+	P_e(\Omega, \delta, t)=\frac{\Omega^2}{\Omega^2+\delta^2}\sin^2\left(\frac{\sqrt{\Omega^2+\delta^2}}{2}t\right)
 	\label{eq:Rabi_oscillations}	
 \end{equation}
 
+The full width half maximum is $1/t$. Set $\Omega$ and $t$ such that $P_e<0.05$
+
+Each pulse 
+\begin{equation}
+	n_\pm = n_0 P_e(\Omega, \delta_+, \tau)
+\end{equation}
+
+with $\delta_+=\delta_0+1/(2\tau)$ 
+
+Second pulse:
+\begin{equation}
+	n_-=(n_0-n_+)P_e(\Omega, \delta_-, \tau)\approx n_0P_e(\Omega, \delta_-, \tau)
+\end{equation}
+
+The transfer function is 
+\begin{equation}
+	g(\Omega, \delta_0, \tau)
+\end{equation}
+
+
+Main contributions are shot noise and technical noise of the detector. 
+{\it Signal to noise ratio}
 SNR for absorption imaging according to Erin's paper is 
 \begin{equation}
 	SNR_{\mathrm{model}}=\frac{OD}{\Delta_0}\left(\frac{2}{1+e^{OD}}\right)^{1/2}
 \end{equation}
 
 where $\Delta_0$ is the noise in the absence of atoms.
+
+Write transfer function, propagate uncertainties in n transferred to get the real transfer function. 
+
+
+
+{\it Dick effect}
+
+Dick effect due to non-continuous probing 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
