@@ -107,38 +107,34 @@ for i in range(x):
     for j in range(y):
         k_2D[i,j] = kx[i]**2 + ky[j]**2
 
-def refocus(img,k_2D,  dz, alpha, delta=0):
-    
-    xc = 321
-    yc = 218
-    radius = 20
+def refocus(img,k_2D,  dz, alpha, delta=0, plotme=False):
 
-    
-#    plt.imshow(img)
-#    plt.colorbar()
-#    plt.show()
-    
     fft_img = np.fft.fftshift(np.fft.fft2(img-img.mean()))
     fft_img_refocused = U(k_2D, dz, alpha, delta) * fft_img    
     img_refocused = np.fft.ifft2(fft_img*0+fft_img_refocused)
     mod = (img_refocused * np.conjugate(img_refocused)).real
     mod = np.abs(img_refocused) 
-#    mod = mod[yc-2*radius:yc+2*radius, xc-2*radius:xc+2*radius]
     
+    if plotme:
+        
+        xc = 321
+        yc = 218
+        radius = 20  
+        mod_crop = mod = mod[yc-2*radius:yc+2*radius, xc-2*radius:xc+2*radius]
     
-#    fig = plt.figure(0, figsize=(10, 3))
-#    gs = GridSpec(1, 2)
-#    gs.update(left=0.1, right=0.95, bottom=0.1, top=0.96,
-#              wspace=0.2, hspace=0.1)
-#
-#    plt.subplot(gs[0])
-#    plt.imshow(np.abs(fft_img_refocused)**2, vmax=7e3)
-#    plt.colorbar()
-#
-#    plt.subplot(gs[1])
-#    plt.imshow((mod)+img.mean())
-#    plt.colorbar()
-#    plt.show()
+        plt.figure(0, figsize=(10, 3))
+        gs = GridSpec(1, 2)
+        gs.update(left=0.1, right=0.95, bottom=0.1, top=0.96,
+                  wspace=0.2, hspace=0.1)
+    
+        plt.subplot(gs[0])
+        plt.imshow(np.abs(fft_img_refocused)**2, vmax=7e3)
+        plt.colorbar()
+    
+        plt.subplot(gs[1])
+        plt.imshow((mod_crop)+img.mean())
+        plt.colorbar()
+        plt.show()
     
     return mod
             
